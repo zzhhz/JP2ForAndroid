@@ -3,7 +3,7 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.8.2)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DUSE_JPIP")
 
@@ -25,6 +25,7 @@ add_library( # Sets the name of the library.
         src/main/cpp/openjpeg/src/lib/openjp2/dwt.c
         src/main/cpp/openjpeg/src/lib/openjp2/event.c
         src/main/cpp/openjpeg/src/lib/openjp2/function_list.c
+        src/main/cpp/openjpeg/src/lib/openjp2/ht_dec.c
         src/main/cpp/openjpeg/src/lib/openjp2/image.c
         src/main/cpp/openjpeg/src/lib/openjp2/invert.c
         src/main/cpp/openjpeg/src/lib/openjp2/j2k.c
@@ -39,6 +40,8 @@ add_library( # Sets the name of the library.
         src/main/cpp/openjpeg/src/lib/openjp2/ppix_manager.c
         src/main/cpp/openjpeg/src/lib/openjp2/sparse_array.c
         src/main/cpp/openjpeg/src/lib/openjp2/t1.c
+        src/main/cpp/openjpeg/src/lib/openjp2/t1_generate_luts.c
+        src/main/cpp/openjpeg/src/lib/openjp2/t1_ht_generate_luts.c
         src/main/cpp/openjpeg/src/lib/openjp2/t2.c
         src/main/cpp/openjpeg/src/lib/openjp2/tcd.c
         src/main/cpp/openjpeg/src/lib/openjp2/tgt.c
@@ -79,4 +82,4 @@ target_link_libraries( # Specifies the target library.
         # included in the NDK.
         ${log-lib})
 
-target_link_options(openjpeg PRIVATE "-Wl,-z,max-page-size=16384")
+#target_link_options(openjpeg PRIVATE "-Wl,-z,max-page-size=16384")
